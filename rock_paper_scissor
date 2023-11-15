@@ -1,0 +1,122 @@
+// C++ Program to Implement Rock-Paper-Scissors 
+#include <cstdlib> 
+#include <ctime> 
+#include <iostream> 
+using namespace std; 
+
+
+char getComputerMove() 
+{ 
+	int move; 
+	
+	srand(time(NULL)); 
+	move = rand() % 3; 
+
+	 
+	if (move == 0) { 
+		return 'p'; 
+	} 
+	else if (move == 1) { 
+		return 's'; 
+	} 
+	return 'r'; 
+} 
+
+
+int getResults(char playerMove, char computerMove) 
+{ 
+	
+	if (playerMove == computerMove) { 
+		return 0; 
+	} 
+
+	
+	if (playerMove == 's' && computerMove == 'p') { 
+		return 1; 
+	} 
+	if (playerMove == 's' && computerMove == 'r') { 
+		return -1; 
+	} 
+	if (playerMove == 'p' && computerMove == 'r') { 
+		return 1; 
+	} 
+	if (playerMove == 'p' && computerMove == 's') { 
+		return -1; 
+	} 
+	if (playerMove == 'r' && computerMove == 'p') { 
+		return -1; 
+	} 
+	if (playerMove == 'r' && computerMove == 's') { 
+		return 1; 
+	} 
+	
+	return 0; 
+} 
+
+ 
+int main() 
+{ 
+
+	char playerMove; 
+
+	cout << "\n\n\n\t\t\tWelcome to Stone Paper Scissor "
+			"Game\n"; 
+
+	int you=0,com=0;
+    int c=0;
+	 
+	while(1) { 
+        cout << "\n\t\tEnter r for ROCK, p for PAPER, and s "
+			"for SCISSOR\n\t\t\t\t\t";
+			
+			cout<<endl<<endl<<"\t\t\t\t\t";
+		cin >> playerMove; 
+		if (playerMove == 'p' || playerMove == 'r' || playerMove == 's') { 
+		c++;
+            
+	 
+	char computerMove = getComputerMove(); 
+
+	int result = getResults(playerMove, computerMove); 
+    
+
+	 
+	if (result == 0) { 
+		cout << "\n\t\t\tGame Draw!\n"; 
+	} 
+	else if (result == 1) {
+        you++; 
+		cout << "\n\t\t\t\nCongratulations! Player won the "
+				"game!\n"; 
+	} 
+	else { 
+        com++;
+		cout << "\n\t\t\t\nOh! Computer won the game!\n"; 
+	} 
+
+	
+	cout << "\t\t\tYour Move: " << playerMove << endl; 
+	cout << "\t\t\tComputer's Move: " << computerMove << endl;
+            if(c==5)break;
+		} 
+		else { 
+			cout << "\t\t\tInvalid Player Move!!! Please Try Again." << endl;
+		
+		} 
+		
+		    cout<<"player point is "<<you<<"\n\ncomputer point is "<<com<<"\n\n";
+	}
+	cout<<"After the game";
+    if(you>com)cout<<"\n finally player won!!\n\n";
+    else cout<<"\n Opps !!player lost !computer won!!\n\n";
+
+
+    // cout<<"player point is "<<you<<"\n\ncomputer point is "<<com<<"\n\n"; 
+	
+	
+ 
+
+
+
+    cout<<"player point is "<<you<<"\n\ncomputer point is "<<com<<"\n\n";	return 0; 
+}
