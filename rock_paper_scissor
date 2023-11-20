@@ -10,7 +10,7 @@ char getComputerMove()
 	int move; 
 	
 	srand(time(NULL)); 
-	move = rand() % 3; 
+	move = rand() % 6; 
 
 	 
 	if (move == 0) { 
@@ -19,7 +19,14 @@ char getComputerMove()
 	else if (move == 1) { 
 		return 's'; 
 	} 
-	return 'r'; 
+	else if(move == 2)
+	return 'r';
+	
+	else if(move == 3) return 'P';
+	
+	else if(move == 4) return 'S';
+	
+	else return 'R';
 } 
 
 
@@ -30,26 +37,88 @@ int getResults(char playerMove, char computerMove)
 		return 0; 
 	} 
 
+	else if(playerMove == 'S' && computerMove == 'P')
+	{
+	    return 1;
+	}
 	
-	if (playerMove == 's' && computerMove == 'p') { 
+	else if(playerMove == 's' && computerMove == 'P')
+	{
+	    return 1;
+	}
+	else if(playerMove == 'S' && computerMove == 'p')
+	{
+	    return 1;
+	}
+    else	if (playerMove == 's' && computerMove == 'p') { 
 		return 1; 
 	} 
-	if (playerMove == 's' && computerMove == 'r') { 
+    else 	if (playerMove == 's' && computerMove == 'r') { 
+		return -1; 
+	}
+	else 	if (playerMove == 'S' && computerMove == 'R') { 
 		return -1; 
 	} 
-	if (playerMove == 'p' && computerMove == 'r') { 
+    else 	if (playerMove == 's' && computerMove == 'R') { 
+		return -1; 
+	} 
+
+	else 	if (playerMove == 'S' && computerMove == 'r') { 
+		return -1; 
+	} 
+
+    else	if (playerMove == 'p' && computerMove == 'r') { 
 		return 1; 
-	} 
-	if (playerMove == 'p' && computerMove == 's') { 
-		return -1; 
-	} 
-	if (playerMove == 'r' && computerMove == 'p') { 
-		return -1; 
-	} 
-	if (playerMove == 'r' && computerMove == 's') { 
+	}
+	else	if (playerMove == 'P' && computerMove == 'R') { 
 		return 1; 
+	}
+	else	if (playerMove == 'P' && computerMove == 'r') { 
+		return 1; 
+	}
+	else	if (playerMove == 'p' && computerMove == 'R') { 
+		return 1; 
+	}
+     else	if (playerMove == 'p' && computerMove == 's') { 
+		return -1; 
+	}
+	else	if (playerMove == 'P' && computerMove == 'S') { 
+		return -1; 
+	}
+	else	if (playerMove == 'P' && computerMove == 's') { 
+		return -1; 
+	}
+	else	if (playerMove == 'p' && computerMove == 'S') { 
+		return -1; 
+	}
+    else	if (playerMove == 'r' && computerMove == 'p') { 
+		return -1; 
+	}
+	else	if (playerMove == 'R' && computerMove == 'P') { 
+		return -1; 
 	} 
+	else	if (playerMove == 'R' && computerMove == 'p') { 
+		return -1; 
+	} 
+	else	if (playerMove == 'r' && computerMove == 'P') { 
+		return -1; 
+	} 
+
+
+
+    else	if (playerMove == 'r' && computerMove == 's') { 
+		return 1; 
+	}
 	
+	    else	if (playerMove == 'R' && computerMove == 'S') { 
+		return 1; 
+	}
+	    else	if (playerMove == 'R' && computerMove == 's') { 
+		return 1; 
+	}
+	    else	if (playerMove == 'r' && computerMove == 'S') { 
+		return 1; 
+	}
 	return 0; 
 } 
 
@@ -71,7 +140,7 @@ int main()
 			
 			cout<<endl<<endl<<"\t\t\t\t\t";
 		cin >> playerMove; 
-		if (playerMove == 'p' || playerMove == 'r' || playerMove == 's') { 
+		if (playerMove == 'p' || playerMove == 'r' || playerMove == 's' || playerMove == 'P' || playerMove == 'S' || playerMove == 'R') { 
 		c++;
             
 	 
